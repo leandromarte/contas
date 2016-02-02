@@ -27,6 +27,7 @@ public class ContaDAO {
 	public void adiciona(Conta conta) {
 		String sql = "insert into contas (descricao, paga, valor, tipo) values (?,?,?,?)";
 		PreparedStatement stmt;
+		System.out.println(conta);
 		try {
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, conta.getDescricao());
