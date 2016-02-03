@@ -7,6 +7,12 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Insert title here</title>
+<script src="resources/js/jquery.js"></script>
+<script type="text/javascript">
+	function pagaAgora(id) {
+		$.get("pagaConta/?id=" + id);
+	}
+</script>
 </head>
 <body>
 	<table>
@@ -32,6 +38,9 @@
 					<c:if test="${conta.paga eq true}">
 						Sim
 					</c:if>
+				</td>
+				<td>
+					<a href="#" onclick="pagaAgora(${conta.id});">Pagar</a>
 				</td>
 				<td><fmt:formatDate value="${conta.dataPagamento.time}" pattern="dd/MM/yyyy" /></td>
 			</tr>

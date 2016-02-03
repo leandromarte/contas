@@ -32,6 +32,14 @@ public class ContaController {
 		return "conta-adicionada";
 	}
 	
+	@RequestMapping("/pagaConta")
+	public String pagaConta(Conta conta) {
+		ContaDAO dao = new ContaDAO();
+		dao.paga(conta.getId());
+		
+		return "redirect:listaContas";
+	}
+	
 	@RequestMapping("/listaContas")
 	public ModelAndView lista() {
 		ContaDAO dao = new ContaDAO();
